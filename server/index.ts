@@ -1,15 +1,9 @@
 import "dotenv/config";
 import express, { Response, NextFunction } from 'express';
 import type { Request } from 'express';
-import cookieParser from "cookie-parser";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "node:http";
-import {
-  initAuth, requireAuth, requireAdmin,
-  handleLogin, handleLogout, handleMe,
-  handleListUsers, handleCreateUser, handleUpdateUser, handleDeleteUser,
-} from "./auth";
 
 const app = express();
 const httpServer = createServer(app);
@@ -29,26 +23,6 @@ app.use(
 );
 
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-// Bootstrap auth (creates users table + seeds admin)
-initAuth();
-
-// ─── Public auth routes (no requireAuth) ─────────────────────────────────────
-// These MUST be declared before the requireAuth middleware on /api/*
-app.post("/api/auth/login",  handleLogin);
-app.post("/api/auth/logout", handleLogout);
-app.get( "/api/auth/me",     requireAuth as any, handleMe as any);
-
-// ─── Protected API routes ───────────────────────────────────────────────
-// All /api/* routes (except auth above) require a valid session
-app.use("/api", requireAuth as any);
-
-// ─── Admin routes ────────────────────────────────────────────────────────
-app.get(   "/api/admin/users",     requireAdmin as any, handleListUsers);
-app.post(  "/api/admin/users",     requireAdmin as any, handleCreateUser);
-app.patch( "/api/admin/users/:id", requireAdmin as any, handleUpdateUser);
-app.delete("/api/admin/users/:id", requireAdmin as any, handleDeleteUser as any);
 
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
@@ -103,9 +77,6 @@ app.use((req, res, next) => {
     return res.status(status).json({ message });
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
   if (process.env.NODE_ENV === "production") {
     serveStatic(app);
   } else {
@@ -113,10 +84,6 @@ app.use((req, res, next) => {
     await setupVite(httpServer, app);
   }
 
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
   httpServer.listen(
     {

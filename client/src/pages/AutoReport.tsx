@@ -93,7 +93,7 @@ function ReportTableRow({ row }: { row: ReportRow }) {
       {/* Code */}
       <td className="px-3 py-2 border-r border-slate-200 w-28">
         <span className={`text-sm font-semibold ${
-          isMTP ? "text-blue-800" :
+          isMTP ? "text-[hsl(255,38%,44%)]" :
           isGraves ? "text-slate-600" :
           "text-slate-900"
         }`}>{row.code}</span>
@@ -807,8 +807,8 @@ export default function AutoReport() {
                 data-testid="btn-export-all-docx"
                 className="group flex items-center gap-4 rounded-lg border border-slate-200 px-4 py-3.5 text-left hover:border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary)/0.03)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <div className="w-9 h-9 rounded-lg bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center shrink-0 transition-colors">
-                  <FileText className="w-5 h-5 text-blue-700" />
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors" style={{background:"hsl(152 32% 36% / 0.10)"}}>
+                  <FileText className="w-5 h-5" style={{color:"hsl(152 32% 36%)"}} />
                 </div>
                 <div>
                   <div className="font-semibold text-slate-800 text-sm">

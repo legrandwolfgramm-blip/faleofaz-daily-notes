@@ -2,82 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* ─── Geist Sans — clean, warm, modern ─── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
 
-/* ─── FaleOfaz Brand Palette — Navy/Teal Government Professional ─── */
+/*
+  ─── FaleOfaz Refresh — Calm & Productive ──────────────────────────────────
+  Palette: Warm cream backgrounds, sage green primary, soft stone neutrals.
+  Feels like a well-lit desk: easy on the eyes, focused, never harsh.
+*/
+
 :root {
-  --background: 210 25% 97%;
-  --foreground: 215 30% 12%;
+  /* Backgrounds — warm cream, not cold white */
+  --background:         44 28% 96%;    /* #F7F5F0 warm parchment */
+  --foreground:         30 12% 16%;    /* #2A2620 warm near-black */
 
-  --card: 0 0% 100%;
-  --card-foreground: 215 30% 12%;
+  /* Cards — slightly lifted from background */
+  --card:               40 30% 99%;    /* #FDFCFA almost white with warmth */
+  --card-foreground:    30 12% 16%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 215 30% 12%;
+  --popover:            40 30% 99%;
+  --popover-foreground: 30 12% 16%;
 
-  --primary: 210 85% 28%;
+  /* Primary — calm sage green */
+  --primary:            152 32% 36%;   /* #3D7A62 sage */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 185 55% 22%;
-  --secondary-foreground: 0 0% 100%;
+  /* Secondary — warm stone */
+  --secondary:          32 20% 91%;    /* #EDE9E2 warm stone */
+  --secondary-foreground: 30 12% 28%;
 
-  --muted: 210 18% 93%;
-  --muted-foreground: 215 15% 46%;
+  /* Muted — very soft warm gray */
+  --muted:              38 18% 93%;    /* #EEEBE5 */
+  --muted-foreground:   30 8% 48%;     /* #7C7770 */
 
-  --accent: 185 55% 22%;
-  --accent-foreground: 0 0% 100%;
+  /* Accent — terracotta whisper (used sparingly) */
+  --accent:             25 38% 88%;    /* #EEE0D3 */
+  --accent-foreground:  25 30% 28%;
 
-  --destructive: 0 72% 45%;
+  --destructive:        4 72% 50%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 210 18% 87%;
-  --input: 210 18% 87%;
-  --ring: 210 85% 28%;
+  --border:             38 16% 86%;    /* #E0DDD7 soft warm border */
+  --input:              38 16% 86%;
+  --ring:               152 32% 36%;
 
-  --radius: 0.5rem;
+  --radius: 0.75rem;                   /* slightly more rounded = friendlier */
 
-  /* Semantic extras */
-  --color-critical: 0 72% 45%;
-  --color-warning: 38 90% 44%;
-  --color-success: 145 52% 32%;
-  --color-info: 210 85% 28%;
-  --color-mtp: 270 55% 40%;
+  /* Row type colors */
+  --color-critical: 4 72% 50%;
+  --color-warning:  36 88% 48%;
+  --color-success:  152 40% 36%;
+  --color-info:     152 32% 36%;
+  --color-mtp:      255 38% 52%;
+
+  /* Custom surfaces */
+  --sidebar-bg:     44 22% 93%;        /* #EDEBE4 sidebar — slightly darker than main */
+  --sidebar-border: 38 16% 83%;
 }
 
 .dark {
-  --background: 215 30% 8%;
-  --foreground: 210 18% 90%;
+  --background:         30 12% 10%;    /* #1C1A17 dark warm */
+  --foreground:         38 18% 88%;    /* #E4E1DA */
 
-  --card: 215 28% 11%;
-  --card-foreground: 210 18% 90%;
+  --card:               30 12% 13%;    /* #221F1B */
+  --card-foreground:    38 18% 88%;
 
-  --popover: 215 28% 11%;
-  --popover-foreground: 210 18% 90%;
+  --popover:            30 12% 13%;
+  --popover-foreground: 38 18% 88%;
 
-  --primary: 210 70% 55%;
-  --primary-foreground: 215 30% 8%;
+  --primary:            152 38% 52%;   /* #4DA882 brighter sage */
+  --primary-foreground: 30 12% 10%;
 
-  --secondary: 185 45% 40%;
-  --secondary-foreground: 215 30% 8%;
+  --secondary:          30 10% 20%;
+  --secondary-foreground: 38 18% 72%;
 
-  --muted: 215 20% 18%;
-  --muted-foreground: 215 12% 58%;
+  --muted:              30 10% 18%;
+  --muted-foreground:   38 10% 52%;
 
-  --accent: 185 45% 40%;
-  --accent-foreground: 215 30% 8%;
+  --accent:             25 25% 22%;
+  --accent-foreground:  38 18% 80%;
 
-  --destructive: 0 62% 55%;
+  --destructive:        4 62% 55%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 215 20% 22%;
-  --input: 215 20% 22%;
-  --ring: 210 70% 55%;
+  --border:             30 10% 22%;
+  --input:              30 10% 22%;
+  --ring:               152 38% 52%;
 
-  --color-critical: 0 62% 55%;
-  --color-warning: 38 80% 55%;
-  --color-success: 145 42% 45%;
-  --color-info: 210 70% 55%;
-  --color-mtp: 270 45% 60%;
+  --color-critical: 4 62% 55%;
+  --color-warning:  36 78% 55%;
+  --color-success:  152 38% 48%;
+  --color-info:     152 38% 52%;
+  --color-mtp:      255 38% 65%;
+
+  --sidebar-bg:     30 12% 8%;
+  --sidebar-border: 30 10% 18%;
 }
 
 * {
@@ -95,13 +114,42 @@ html {
 
 body {
   min-height: 100dvh;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
-/* Print styles for report export */
+/* ─── Sidebar ─────────────────────────────────────────────────────────────── */
+aside {
+  background-color: hsl(var(--sidebar-bg)) !important;
+  border-color: hsl(var(--sidebar-border)) !important;
+}
+
+/* ─── Scrollbar — thin and warm ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }
+
+/* ─── Card lift — subtle warm shadow ─────────────────────────────────────── */
+.card-lift {
+  box-shadow: 0 1px 3px hsl(30 20% 10% / 0.06), 0 1px 2px hsl(30 20% 10% / 0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-lift:hover {
+  box-shadow: 0 4px 12px hsl(30 20% 10% / 0.08), 0 2px 4px hsl(30 20% 10% / 0.05);
+  transform: translateY(-1px);
+}
+
+/* ─── Focus ring — sage green ─────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* ─── Print styles ────────────────────────────────────────────────────────── */
 @media print {
   .no-print { display: none !important; }
   .print-only { display: block !important; }
@@ -112,18 +160,28 @@ body {
 
 .print-only { display: none; }
 
-/* Badge severity colors */
-.badge-critical { background: hsl(0 72% 45% / 0.12); color: hsl(0 72% 38%); border: 1px solid hsl(0 72% 45% / 0.3); }
-.badge-warning  { background: hsl(38 90% 44% / 0.12); color: hsl(38 80% 32%); border: 1px solid hsl(38 90% 44% / 0.3); }
-.badge-success  { background: hsl(145 52% 32% / 0.12); color: hsl(145 52% 28%); border: 1px solid hsl(145 52% 32% / 0.3); }
-.badge-info     { background: hsl(210 85% 28% / 0.12); color: hsl(210 85% 28%); border: 1px solid hsl(210 85% 28% / 0.3); }
-.badge-mtp      { background: hsl(270 55% 40% / 0.12); color: hsl(270 55% 35%); border: 1px solid hsl(270 55% 40% / 0.3); }
+/* ─── Badge severity ──────────────────────────────────────────────────────── */
+.badge-critical { background: hsl(4 72% 50% / 0.10); color: hsl(4 72% 40%); border: 1px solid hsl(4 72% 50% / 0.25); }
+.badge-warning  { background: hsl(36 88% 48% / 0.10); color: hsl(36 80% 32%); border: 1px solid hsl(36 88% 48% / 0.25); }
+.badge-success  { background: hsl(152 40% 36% / 0.10); color: hsl(152 40% 28%); border: 1px solid hsl(152 40% 36% / 0.25); }
+.badge-info     { background: hsl(152 32% 36% / 0.10); color: hsl(152 32% 30%); border: 1px solid hsl(152 32% 36% / 0.25); }
+.badge-mtp      { background: hsl(255 38% 52% / 0.10); color: hsl(255 38% 40%); border: 1px solid hsl(255 38% 52% / 0.25); }
 
-.dark .badge-critical { color: hsl(0 72% 68%); background: hsl(0 72% 45% / 0.18); }
-.dark .badge-warning  { color: hsl(38 90% 65%); background: hsl(38 90% 44% / 0.18); }
-.dark .badge-success  { color: hsl(145 52% 55%); background: hsl(145 52% 32% / 0.18); }
-.dark .badge-info     { color: hsl(210 70% 65%); background: hsl(210 70% 55% / 0.18); }
-.dark .badge-mtp      { color: hsl(270 45% 70%); background: hsl(270 55% 40% / 0.18); }
+.dark .badge-critical { color: hsl(4 72% 65%);  background: hsl(4 72% 50% / 0.15); }
+.dark .badge-warning  { color: hsl(36 88% 65%);  background: hsl(36 88% 48% / 0.15); }
+.dark .badge-success  { color: hsl(152 40% 55%); background: hsl(152 40% 36% / 0.15); }
+.dark .badge-info     { color: hsl(152 38% 60%); background: hsl(152 38% 52% / 0.15); }
+.dark .badge-mtp      { color: hsl(255 38% 70%); background: hsl(255 38% 52% / 0.15); }
 
-/* Monospace for PIDs/codes */
-.mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+/* ─── Monospace for PIDs/codes ────────────────────────────────────────────── */
+.mono { font-family: 'DM Mono', 'Courier New', monospace; }
+
+/* ─── Soft input style ────────────────────────────────────────────────────── */
+input, textarea, select {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Smooth transitions on interactive elements ─────────────────────────── */
+button, a, [role="button"] {
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
