@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── FaleOfaz Brand Palette — Navy/Teal Government Professional ─── */
+:root {
+  --background: 210 25% 97%;
+  --foreground: 215 30% 12%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 215 30% 12%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 30% 12%;
+
+  --primary: 210 85% 28%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 185 55% 22%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 210 18% 93%;
+  --muted-foreground: 215 15% 46%;
+
+  --accent: 185 55% 22%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 72% 45%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 210 18% 87%;
+  --input: 210 18% 87%;
+  --ring: 210 85% 28%;
+
+  --radius: 0.5rem;
+
+  /* Semantic extras */
+  --color-critical: 0 72% 45%;
+  --color-warning: 38 90% 44%;
+  --color-success: 145 52% 32%;
+  --color-info: 210 85% 28%;
+  --color-mtp: 270 55% 40%;
+}
+
+.dark {
+  --background: 215 30% 8%;
+  --foreground: 210 18% 90%;
+
+  --card: 215 28% 11%;
+  --card-foreground: 210 18% 90%;
+
+  --popover: 215 28% 11%;
+  --popover-foreground: 210 18% 90%;
+
+  --primary: 210 70% 55%;
+  --primary-foreground: 215 30% 8%;
+
+  --secondary: 185 45% 40%;
+  --secondary-foreground: 215 30% 8%;
+
+  --muted: 215 20% 18%;
+  --muted-foreground: 215 12% 58%;
+
+  --accent: 185 45% 40%;
+  --accent-foreground: 215 30% 8%;
+
+  --destructive: 0 62% 55%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 215 20% 22%;
+  --input: 215 20% 22%;
+  --ring: 210 70% 55%;
+
+  --color-critical: 0 62% 55%;
+  --color-warning: 38 80% 55%;
+  --color-success: 145 42% 45%;
+  --color-info: 210 70% 55%;
+  --color-mtp: 270 45% 60%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  line-height: 1.6;
+}
+
+/* Print styles for report export */
+@media print {
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  body { background: white; color: black; font-size: 11pt; }
+  .report-page { page-break-after: always; }
+  .report-page:last-child { page-break-after: avoid; }
+}
+
+.print-only { display: none; }
+
+/* Badge severity colors */
+.badge-critical { background: hsl(0 72% 45% / 0.12); color: hsl(0 72% 38%); border: 1px solid hsl(0 72% 45% / 0.3); }
+.badge-warning  { background: hsl(38 90% 44% / 0.12); color: hsl(38 80% 32%); border: 1px solid hsl(38 90% 44% / 0.3); }
+.badge-success  { background: hsl(145 52% 32% / 0.12); color: hsl(145 52% 28%); border: 1px solid hsl(145 52% 32% / 0.3); }
+.badge-info     { background: hsl(210 85% 28% / 0.12); color: hsl(210 85% 28%); border: 1px solid hsl(210 85% 28% / 0.3); }
+.badge-mtp      { background: hsl(270 55% 40% / 0.12); color: hsl(270 55% 35%); border: 1px solid hsl(270 55% 40% / 0.3); }
+
+.dark .badge-critical { color: hsl(0 72% 68%); background: hsl(0 72% 45% / 0.18); }
+.dark .badge-warning  { color: hsl(38 90% 65%); background: hsl(38 90% 44% / 0.18); }
+.dark .badge-success  { color: hsl(145 52% 55%); background: hsl(145 52% 32% / 0.18); }
+.dark .badge-info     { color: hsl(210 70% 65%); background: hsl(210 70% 55% / 0.18); }
+.dark .badge-mtp      { color: hsl(270 45% 70%); background: hsl(270 55% 40% / 0.18); }
+
+/* Monospace for PIDs/codes */
+.mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
